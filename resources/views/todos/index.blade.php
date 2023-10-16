@@ -19,7 +19,7 @@
                 <td>{{ $todo->title }}</td>
                 <td>{{ $todo->body }}</td>
                 <td>{{ $todo->created_at }}</td>
-                <td><a href="#">Read more</a></td>
+                <td><a href="{{route('todos.show', $todo->id)}}">Read more</a></td>
             </tr>
             
             @empty

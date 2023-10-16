@@ -13,23 +13,25 @@
     </div>
 @endif --}}
 
-<form action="{{route('todos.store')}}" method="post">
+<form action="{{route('todos.store')}}" method="POST">
     @csrf
     <div>
         <label>Title</label>
-        <input type="text" name="title" id="title"/>
+        <input type="text" name="title" id="title">
+        
         @if($errors->has('title'))
         <span>{{$errors->first('title')}}</span>
         @endif
     </div>
     <div>
         <label>Description</label>
-        <input type="text" name="body" id="body"/>
+        <input type="text" name="body", id="body">
+
         @if($errors->has('body'))
         <span>{{$errors->first('body')}}</span>
         @endif
     </div>
-    <button type="submit">Create</button>
+    <button type="submit" name="submit" id="submit">Create</button>
 </form>
 
 
