@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Todo;
+use Auth;
 
 class TodoController extends Controller
 {
@@ -12,6 +13,7 @@ class TodoController extends Controller
      */
     public function index()
     {
+        // dd(Auth::user()->todos);
         $todos = Todo::orderBy('created_at' , 'desc')->paginate(8);
 
         return view('todos.index', [ 
@@ -49,6 +51,7 @@ class TodoController extends Controller
         $todo = new Todo;
         $todo->title = $request->title;
         $todo->body = $request->body;
+        $todo->user_id = Auth::id();
         $todo->save();
 
         return redirect()->route('todos.index')->with('status', 'Created a new Todo ');

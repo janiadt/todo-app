@@ -4,6 +4,7 @@
 <h1> Single Todo Page </h1>
 <h2>{{ $todo->title }}</h2>
 <h3>{{ $todo->body }}</h3>
+<h3>{{ $todo->user->name }}</h3>
 <a href={{route('todos.edit', $todo)}}>
 <button class="btn btn-warning" type="button">Edit</button>
 </a>
