@@ -21,6 +21,14 @@ class TodoController extends Controller
         ]);
     }
 
+    public function getMyTodos(){
+        $todos = Todo::where('user_id', '=', Auth::id())->get();
+
+        return view('todos.index', [ 
+            'todos' => $todos
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -98,7 +106,6 @@ class TodoController extends Controller
         ];
 
         $request->validate($rules, $messages);
-
         $todo = todo::findOrFail($id);
         $todo->title = $request->title;
         $todo->body = $request->body;

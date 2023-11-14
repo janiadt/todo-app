@@ -18,7 +18,8 @@ class TodoFactory extends Factory
     {
         return [
             'title' => $this->faker->unique()->sentence(4),
-            'body' => $this->faker->text(100)
+            'body' => $this->faker->text(100),
+            'user_id' => 1
         ];
     }
 }
